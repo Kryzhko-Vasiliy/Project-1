@@ -1131,6 +1131,7 @@ body._lock {
 }
 .footer__body {
   min-height: 420px;
+  border: 1px solid blue;
 }
 
 .text-footer {
