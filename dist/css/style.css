@@ -3025,8 +3025,13 @@ justify-content:center .product-card-sale__card span::before {
 }
 .catalog__body {
   display: grid;
-  grid-template-columns: 375px 1fr;
   gap: 30px;
+  align-items: start;
+}
+@media (min-width: 991.98px) {
+  .catalog__body {
+    grid-template-columns: 375px 1fr;
+  }
 }
 .catalog__control {
   min-width: 280px;
@@ -3039,7 +3044,7 @@ justify-content:center .product-card-sale__card span::before {
 }
 .catalog__products {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(290px, 319px));
+  grid-template-columns: repeat(auto-fit, minmax(290px, 319px));
   gap: 30px;
 }
 .catalog__footer {
@@ -3050,6 +3055,11 @@ justify-content:center .product-card-sale__card span::before {
 }
 .catalog__footer:not(:last-child) {
   margin-bottom: 20px;
+}
+@media (max-width: 991.98px) {
+  .catalog__footer {
+    flex-direction: column;
+  }
 }
 .pagging {
   display: flex;
@@ -3145,6 +3155,19 @@ justify-content:center .product-card-sale__card span::before {
   line-height: 1.2;
   padding: 20px 30px;
   color: white;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+.filter-catalog__title::before {
+  color: #E8AA31;
+  font-size: 16px;
+  background-color: inherit;
+  transform: rotate(180deg);
+  transition: transform 0.3s ease 0.2s;
+}
+.filter-catalog__title.active::before {
+  transform: rotate(0deg);
 }
 .price-filter {
   padding: 30px;
@@ -3168,7 +3191,7 @@ justify-content:center .product-card-sale__card span::before {
   transform: rotate(0deg);
 }
 .price-filter__body {
-  padding: 30px 0px 0px 0px;
+  padding: 30px 0px 30px 0px;
   display: none;
 }
 .price-filter__inputs {
@@ -3178,7 +3201,7 @@ justify-content:center .product-card-sale__card span::before {
   overflow: hidden;
 }
 .price-filter__inputs:not(:last-child) {
-  margin-bottom: 30px;
+  margin-bottom: 60px;
 }
 .price-filter__input {
   width: 50%;
@@ -3190,6 +3213,35 @@ justify-content:center .product-card-sale__card span::before {
 }
 .price-filter__input:not(:last-child) {
   border-left: 1px solid #c3c3c3;
+}
+.item-filter-catalog__title {
+  background-color: #141414;
+  width: 100%;
+  padding: 13px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row-reverse;
+  color: white;
+  border: 1px solid #4f4f4f;
+}
+.item-filter-catalog__title::before {
+  color: #E8AA31;
+  font-size: 10px;
+  background-color: inherit;
+  transform: rotate(180deg);
+  transition: transform 0.7s ease 0s;
+}
+.item-filter-catalog__title.active::before {
+  transform: rotate(0deg);
+}
+.item-filter-catalog__body {
+  padding: 30px;
+}
+@media (max-width: 991.98px) {
+  .item-filter-catalog__body {
+    display: none;
+  }
 }
 .noUi-target,
 .noUi-target * {
@@ -3284,6 +3336,7 @@ justify-content:center .product-card-sale__card span::before {
  */
 .noUi-horizontal {
   height: 1px;
+  background-color: #E8AA31;
 }
 
 .noUi-horizontal .noUi-handle {
@@ -3291,8 +3344,7 @@ justify-content:center .product-card-sale__card span::before {
   height: 18px;
   right: -9px;
   top: -9px;
-  background: #E8AA31;
-  box-shadow: 0px 4px 20px rgba(232, 170, 49, 0.3);
+  border-radius: 50%;
 }
 
 .noUi-vertical {
@@ -3315,10 +3367,7 @@ justify-content:center .product-card-sale__card span::before {
  * Giving the connect element a border radius causes issues with using transform: scale
  */
 .noUi-target {
-  background: #FAFAFA;
-  border-radius: 4px;
-  border: 1px solid #D3D3D3;
-  box-shadow: inset 0 1px 1px #F0F0F0, 0 3px 6px -5px #BBB;
+  background-color: #E8AA31;
 }
 
 .noUi-connects {
@@ -3326,7 +3375,7 @@ justify-content:center .product-card-sale__card span::before {
 }
 
 .noUi-connect {
-  background: #3FB8AF;
+  background: #141414;
 }
 
 /* Handles and cursors;
@@ -3340,47 +3389,22 @@ justify-content:center .product-card-sale__card span::before {
 }
 
 .noUi-handle {
-  border: 1px solid #D9D9D9;
-  border-radius: 3px;
-  background: #FFF;
-  cursor: default;
-  box-shadow: inset 0 0 1px #FFF, inset 0 1px 7px #EBEBEB, 0 3px 6px -3px #BBB;
+  background: #E8AA31;
+  box-shadow: 0px 4px 20px rgba(232, 170, 49, 0.3);
 }
-
-.noUi-active {
-  box-shadow: inset 0 0 1px #FFF, inset 0 1px 7px #DDD, 0 3px 6px -3px #BBB;
+.noUi-handle::before {
+  content: "";
+  position: absolute;
+  background-color: #141414;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  top: 4px;
+  left: 4px;
 }
 
 /* Handle stripes;
  */
-.noUi-handle:before,
-.noUi-handle:after {
-  content: "";
-  display: block;
-  position: absolute;
-  height: 14px;
-  width: 1px;
-  background: #E8E7E6;
-  left: 14px;
-  top: 6px;
-}
-
-.noUi-handle:after {
-  left: 17px;
-}
-
-.noUi-vertical .noUi-handle:before,
-.noUi-vertical .noUi-handle:after {
-  width: 14px;
-  height: 1px;
-  left: 6px;
-  top: 14px;
-}
-
-.noUi-vertical .noUi-handle:after {
-  top: 17px;
-}
-
 /* Disabled state;
  */
 [disabled] .noUi-connect {
@@ -3545,4 +3569,58 @@ justify-content:center .product-card-sale__card span::before {
   transform: translate(0, -18px);
   top: auto;
   right: 28px;
+}
+
+.checkbox {
+  position: relative;
+}
+.checkbox:not(:last-child) {
+  margin-bottom: 14px;
+}
+.checkbox__input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+.checkbox__input:focus + .checkbox__label::before {
+  border: 1px solid #E8AA31;
+}
+.checkbox__input:checked + .checkbox__label::after {
+  transform: scale(1);
+}
+.checkbox__label {
+  cursor: pointer;
+  display: inline-flex;
+  position: relative;
+  gap: 10px;
+}
+.checkbox__label::before {
+  content: "";
+  align-items: flex-start;
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid gray;
+  border-radius: 2px;
+  border: 1px solid black;
+}
+.checkbox__label::after {
+  content: "";
+  transition: all 0.5s ease 0s;
+  transform: scale(0);
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 2px;
+  left: 2px;
+  background-color: #E8AA31;
+}
+.checkbox__text {
+  display: flex;
+  align-items: baseline;
+}
+.checkbox__text small {
+  padding-left: 10px;
+  color: #E8AA31;
 }
