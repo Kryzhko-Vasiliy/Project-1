@@ -3624,3 +3624,68 @@ justify-content:center .product-card-sale__card span::before {
   padding-left: 10px;
   color: #E8AA31;
 }
+
+.product__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50%, 50%));
+  gap: 30px;
+}
+.slider-big {
+  margin-bottom: 16px;
+}
+.slider-big__item {
+  text-align: center;
+}
+.slider-big__item img {
+  min-width: 650px;
+  height: 500px;
+}
+
+/* Слайдер запущен */
+/* Слайдер с точками */
+/* Ограничивающая оболочка */
+.slick-list {
+  overflow: hidden;
+}
+
+/* Лента слайдов */
+.slider-product-card .slick-track {
+  display: flex;
+}
+
+/* Слайд */
+/* Слайд активный (показывается) */
+/* Слайд основной */
+/* Слайд по центру */
+/* Клонированный слайд */
+/* Стрелка */
+/* Стрелка влево */
+/* Стрелка вправо */
+/* Стрелка не активная */
+/* Точки (булиты) */
+.slider-product-card .slick-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.slider-product-card .slick-dots li {
+  list-style: none;
+}
+
+/* Активная точка */
+.slider-product-card .slick-dots li.slick-active button {
+  background-color: transparent;
+  border: 1px solid #E8AA31;
+}
+
+/* Элемент точки */
+.slick-dots li button {
+  font-size: 0;
+  width: 10px;
+  height: 10px;
+  background-color: #E8AA31;
+  border-radius: 50%;
+  margin: 0px 10px;
+}
