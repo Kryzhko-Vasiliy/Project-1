@@ -1,0 +1,210 @@
+@use 'sass:math';
+
+//Подключение миксинов******************************************************************************************************//
+@import "../base/mixins.scss";
+
+//Подключение шрифтов******************************************************************************************************//
+@import url("https://fonts.googleapis.com/css?family=Montserrat:500,600,700,800,900");
+
+//Подключение  локальных файлов и иконочных шрифтов***********************************************************************************************
+//Подключить если есть файлы  иконочных шрифтов
+@import "../fonts/icons.scss";
+@import "../fonts/iconsfont.scss";
+//Подключаю миксин -Адаптивный шрифт  (можно использовать и под другие параметры)
+@import "../base/adaptive-fonts.scss";
+//Шрифт по умолчанию
+$fontFamily:"Montserrat";
+
+$fontSize: 16px; //где 18(px)-размер шрифта по умолчанию из макета(в большинстве по макету)
+$number:640px;
+
+//Основные цвета 
+$mainColor: black; //цвет шрифта по умолчанию
+$maimDarkColor: #141414;
+$mainOrange:#E8AA31;
+
+//НАСТРОЙКИ ********************************************************************************************************************//
+//минимальная ширина страницы
+$minWidth: 320;
+//Ширина полотна(макета)
+$maxWidth: 1920;
+
+//Ширина ограничивающего контейнера
+$maxWidthContainer: 1590;
+
+//Общий отступ у контейнера(во избежание прилипания контента к экрану)
+// ( 30 = по 15px слева и справа, 0 = нет отступа)
+$containerPadding: 30;
+
+//тип адаптива
+//1 - отзывчивость (у контейнера нет брейкпоинтов)
+//2 - по брейк-поинтам (контейнер имеет свою ширину по брейк-поинтам)
+$responsiveType: 1;
+
+//Ширина срабатывания первого брейкпойнта
+$containerWidth: $maxWidthContainer + $containerPadding;
+
+//Брейк-пойнты
+$pc: em($containerWidth);   //пк, ноутбук и тп
+$tablet: em(991.98);        //планшеты и некоторые телефоны в горизонтальном положении
+$mobile: em(767.98);        //Телефоны L
+$mobileSmall: em(479.98);   //Телефоны S
+
+
+//Обнуление и общие параметры *************************************************************************************************************************
+@import "../base/null.scss";
+
+body {
+    font-family: $fontFamily;
+    font-weight: 500;
+    font-style: normal;
+    //скролл заблокирован
+    &._lock {
+        overflow: hidden;
+        touch-action: none;
+    }
+}
+
+//Оболочка***********************************************************************************************************************************************************
+
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    //Сайт загружен
+    .loaded & {
+    }
+    > main {
+        flex: 1 1 auto;
+    }
+    //фикс для слайдеров
+    > * {
+        min-width: 0;
+    }
+}
+
+//Ограничивающий контейнер ****************************************************************************************************************************
+/*
+(i)Стили будут применяться ко всмем классам содержащим *__container
+Например header__container, main__container  и тд.
+Снипет (HTML):cnt
+*/
+
+[class*="__container"]{
+    // display: flex;
+    align-items: center;
+    // justify-content: center;         //Выстраивал контент по центру(что для данног проекта )
+}
+
+@if ($responsiveType==1){
+    //Отзывчивая
+    [class*="__container"]  {
+        @if($maxWidthContainer>0px){
+            max-width: rem($maxWidthContainer);
+            box-sizing: content-box;
+            margin: 0 auto;
+        }
+        @if ($containerPadding>0px){
+            padding: 0 rem(math.div($containerPadding, 2));
+        }
+    }  
+} @else {
+        //По брейк-поинтам
+    [class*="__container"]{
+        margin: 0 auto;
+         @if ($maxWidthContainer>0){
+            max-width: rem($maxWidthContainer);
+            box-sizing: content-box;
+            }
+            @else{
+                @if ($containerPadding>0){
+                    padding: 0 rem(math.div($containerPadding, 2));
+                }
+            }
+            @media (max-width:$pc){
+                max-width: rem(970);
+                margin: 0 rem(10);                          // можно удалить(данный margin использоваться для определенного проекта          
+            }
+            @media (max-width:$tablet){
+                max-width: rem(750);
+                // margin: 0 rem(15);                      //удалить(данный margin использоваться для определенного проекта
+            }
+            @media (max-width:$mobile){
+                max-width: rem(1620);
+            @if ($containerPadding>0 and $maxWidthContainer>0){
+                padding: 0 rem(math.div($containerPadding, 2)); 
+             }
+         }
+     }
+       
+}
+//Подключение базовых стилейб шаблонов(заготовок) и вспомогательных классов
+//Для подключения/отключения конкретных стилей смотреть в base => null.scss
+
+@import "../popup.scss";
+
+//Подключение стилей общих элементов проекта
+@import "../common.scss";
+//Стили slick-slider
+
+
+//Подключение стилей отдельных блоков
+@import "../header.scss";
+@import "../footer.scss";
+
+
+//Подключение стилей отдельных страниц 
+@import "../main.scss";
+.page {
+
+		// .page_home
+
+		&_home {}
+
+        //page_inner
+
+        &_inner {
+            padding-top: rem(30)
+        }
+
+        //page__header 
+
+        &__header{
+        }
+		// .page__main-block
+
+		&__main-block {}
+
+        // .page__catalog-cards
+
+		&__catalog-cards {}
+
+        // .page__products-slider
+
+		&__products-slider {}
+
+        // .page__articles-module
+
+		&__articles-module {}
+
+        // .page__products-block
+
+		&__products-block {}
+
+        // .page__products-lamp
+
+		&__products-lamp {}
+}
+@import "../catalog-cards.scss";
+@import "../bestsellers-main-slider.scss";
+@import "../../../node_modules/slick-slider/slick/slick.scss";
+@import "../news.scss";
+@import "../sale-knife.scss";
+@import "../article-modules.scss";
+@import "../products-block.scss";
+//--------------------------------------------ABOUT-------------------------------------------------------------------------------
+@import "../about/catalog.scss";
+@import "../about/range.scss";
+@import "../about/checkbox.scss";
+@import "../product/product.scss";

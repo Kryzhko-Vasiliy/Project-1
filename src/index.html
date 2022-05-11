@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="css/style.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Главная</title>
+</head>
+<body>
+    <div class="wrapper">
+        @@include('html/header.html')
+        @@include('html/main.html')
+        @@include('html/catalog-cards.html')
+        @@include('html/bestsellers-main-slider.html',{"title":"Хиты продаж","moretext":"Перейти в Каталог",})
+        @@include('html/news.html',{"title":"Новинки",})
+        @@include('html/sale-knife.html',{"title":"Акции","moresale":"Все акции",})
+        @@include('html/article-modules.html',{"title":"Наши статьи",})
+        @@include('html/products-block.html')
+        @@include('html/products-lamp.html',{"title":"Фонари","moretext":"Перейти в Каталог",})
+        @@include('html/footer.html')
+    
+    </div>
+   <script src="https://unpkg.com/@popperjs/core@2"></script>
+   <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script src="js/app.min.js"></script>
+    
+</body>
+</html>

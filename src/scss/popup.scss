@@ -1,0 +1,64 @@
+/*-------------------------main-block popupJS--------------------------------------*/
+.popup {
+        position: fixed;
+        z-index: 10;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        top:0;
+        left: 0;
+        opacity: 0;
+        visibility: hidden;
+        overflow-x: hidden;
+        overflow-y: auto;                         //включаю скрол строго по вертикали
+        transition: all 0.8s ease 0.2s; 
+		// .popup__wrapper
+
+		&__wrapper {
+            min-height: 100%;
+            // display: flex;
+            // align-items: center;
+            // justify-content: center;
+            // padding: 30px 10px;
+        }
+
+		// .popup__content
+
+		&__content {}
+
+		// .popup__close
+
+		&__close {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            font-size: 20px;
+            font-weight: 900;
+            color: rgb(116, 116, 116);
+            &:hover{
+                color: black;
+                border: none;
+                font-size: 26px;
+  }
+        }
+
+		// .popup__text
+
+		&__text {
+            font-size: 30px;
+            color: red;
+        }
+}
+.close-popup {
+    position: absolute;
+}
+
+.popup.open{
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup.open .popup__content{
+  transform: perspective(600px) translate(0px, 0%) rotate(0deg);
+  opacity: 1;
+}

@@ -1,0 +1,55 @@
+.icon-aroow-bootom:before {
+  content: "\e900";
+}
+.icon-compare:before {
+  content: "\e901";
+}
+.icon-footer-message:before {
+  content: "\e902";
+}
+.icon-footer-watch:before {
+  content: "\e903";
+  border-radius: 50%;
+  background-color: rgb(227, 224, 224);
+  color: rgb(0, 0, 0);
+  font-size: 18px;
+}
+.icon-footer-call:before {
+  content: "\e904";
+  color: white;
+}
+.icon-footer-lacation:before {
+  content: "\e905";
+}
+.icon-logo:before {
+  content: "\e906";
+}
+.icon-rubli:before {
+  content: "\e907";
+}
+.icon-spoler-arrow:before {
+  content: "\e909";
+}
+.icon-user-icons:before {
+  content: "\e90a";
+}
+.icon-favorite:before {
+  content: "\e90b";
+  color: black;
+  @media(max-width:rem(992)){
+    color: white;
+  }
+}
+.icon-shopping .path1:before {
+  content: "\e90c";
+  color: black;
+}
+.icon-lacation:before {
+  content: "\e911";
+  color: black;
+}
+.icon-search:before {
+  content: "\e912";
+}
+
+

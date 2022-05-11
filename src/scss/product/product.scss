@@ -1,0 +1,685 @@
+
+.page {
+
+		// .page_inner
+
+		&_inner {}
+
+		// .page__header
+
+		&__header {}
+
+		// .page__container
+
+		&__container {}
+
+		// .page__breadcrumbs
+
+		&__breadcrumbs {}
+}
+.breadcrumbs {
+
+		// .breadcrumbs__list
+
+		&__list {
+            margin-bottom: rem(10);
+        }
+
+		// .breadcrumbs__item
+
+		&__item {}
+
+		// .breadcrumbs__link
+
+		&__link {}
+
+		// .breadcrumbs__current
+
+		&__current {
+           
+        }
+}
+
+.action-arrow-bottom {
+    padding-bottom: rem(8);
+    &::before{
+        content: "\e900";
+        font-family: 'icomoon';
+        font-size: rem(10);
+        transform: rotate(-90deg);
+        margin-left: rem(10);
+    }
+}
+
+
+
+.product {
+
+		// .product__container
+
+		&__container {
+            //  display: grid;
+            // grid-template-columns: repeat(auto-fit, minmax(50%, 50%));
+            // gap: rem(30);
+        }
+
+		// .product__main
+
+		&__main {
+           display: grid;
+            grid-template-columns: 50% 50%;
+            gap: rem(30);
+             @media (max-width:rem(1200)){
+                display: flex;
+                flex-direction: column;
+            }
+        }
+}
+.main-product {
+    margin-top: rem(30);
+}
+.slider-product-card {
+}
+.slider-card {
+
+		// .slider-card__item
+
+		&__item {}
+}
+
+.slider-big {
+    margin-bottom: rem(16);
+		// .slider-big__item
+
+		&__item {
+            text-align: center;
+            & img{
+                min-width: 650px;
+                height: 500px;
+            }
+        }
+}
+
+
+.main-product {
+
+		// .main-product__body
+
+		&__body {}
+}
+.body-product {
+    background-color: #fefefe;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+    padding: rem(30);
+		// .body-product__header
+
+		&__header {
+            border-bottom: 1px solid rgba(20, 20, 20, 0.15);
+            padding: 0px 0px rem(30) 0px;
+        }
+
+		// .body-product__table
+
+		&__table {
+             border-bottom: 1px solid rgba(20, 20, 20, 0.15);
+            padding: 0px 0px rem(30) 0px;
+            @media(max-width:$mobile){
+        font-size: rem(16);
+    }
+
+        }
+
+		// .body-product__options
+
+		&__options {
+             border-bottom: 1px solid rgba(20, 20, 20, 0.15);
+            padding: 0px 0px rem(30) 0px;
+        }
+
+		// .body-product__actions
+
+		&__actions {
+            padding: rem(30) 0px 0px 0px;
+        }
+}
+.header-product {
+
+		// .header-product__line
+
+		&__line {
+            display: flex;
+            justify-content: space-between;
+            &:not(:last-child) {
+                margin-bottom: rem(10);
+            }
+        }
+
+		// .header-product__title
+
+		&__title {
+            font-size: rem(24);
+            font-weight: 700;
+            line-height: math.div(29, 24);
+            
+        }
+
+		// .header-product__link
+
+		&__link {
+            font-size: rem(24);
+            color: black;
+             &:last-child::before{
+                color: orange;
+            }
+        }
+
+		// .header-product__rating
+
+		&__rating {}
+}
+
+.header-product-icon {
+    display: flex;
+    gap: rem(30);
+}
+.table-product {
+    display: grid;
+    grid-template-columns: rem(200) 1fr;
+    gap: rem(20);
+
+    @media(max-width:$mobile){
+        grid-template-columns: rem(160) 1fr;
+    }
+		// .table-product__label
+
+		&__label {}
+
+		// .table-product__value
+
+		&__value {
+            color: rgba(0, 0, 0, 0.5);
+        }
+}
+.options-product {
+    display: grid;
+    grid-template-columns: rem(200) 1fr;
+    gap: rem(20);
+    @media(max-width:$mobile){
+        display: flex;
+        flex-direction: column;
+    }
+		// .options-product__label
+
+		&__label {
+            align-self: center;
+        }
+
+		// .options-product__value
+
+		&__value {}
+}
+
+.actions-product {
+    // .actions-product__body-price-text
+
+		&__body-price-text {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            align-self: center;
+            gap: rem(80);
+        }
+		// .actions-product__price
+
+		&__price {
+              @include adaptive-value(30, 15);
+            font-weight: 700;
+            line-height: math.div(37, 30);
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: start;
+            gap: rem(10);
+            align-self: center;
+            &::before{
+                font-size: rem(20);
+                color: $mainOrange;
+                align-self: center;
+                font-weight: 700;
+            }
+            @media(max-width:$mobile){
+            min-width: rem(100);
+        }
+        }
+        &__text{
+            position: relative;
+            color: rgba(0, 0, 0, 0.5);
+            font-size: rem(14);
+            &::after{
+                content:"?";
+                color: black;
+                font-size: rem(17);
+                background-color: rgba(0, 0, 0, 0.2);
+                border-radius: 50%;
+                padding: 0px 4px;
+                margin-left: rem(7);
+            }
+        }
+
+		// .actions-product__row
+
+		&__row {
+            display: flex;
+            margin-top: rem(30);
+            @media (max-width:rem(1550)){
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+		// .actions-product__quantity
+
+		&__quantity {}
+
+		// .actions-product__buttons
+
+		&__buttons {
+            flex: 1 1 auto;
+            display: flex;
+            gap: rem(20);
+            justify-content: flex-end;
+             @media (max-width:$mobile){
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+		// .actions-product__cart
+
+		&__cart {
+        }
+}
+#tippy-1 {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255, 153, 0, 0.2);
+    font-size: rem(14);
+    padding: rem(4);
+
+}
+
+.actions-product {
+
+		// .actions-product__quantity
+
+		&__quantity {}
+}
+.quantity {
+}
+.form-quantity {
+}
+.input-group {
+    display: flex;
+    margin-bottom: rem(20);
+}
+.input-group-prepend {
+}
+.btn {
+    font-size: rem(25);
+    background-color: transparent;
+    color:white;
+    align-self: center;
+    align-items: center;
+    background: $maimDarkColor;
+    padding: rem(7);
+}
+.btn-primary {
+}
+.btn-decrease {
+}
+.form-control {
+    text-align: center;
+    font-size: rem(20);
+    color: $mainOrange;
+    font-weight: 700;
+    max-width: rem(60);
+}
+.input-group-append {
+}
+.btn-increase {
+}
+
+
+.button {
+		// .button_black
+		&_black {
+            background-color: $maimDarkColor;
+            @media(max-width: $mobileSmall){
+                font-size: rem(14);
+                height: rem(34);
+            }
+        }
+      
+}
+
+.-cart{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+
+
+.product-card {
+
+		// .product-card__hot
+
+		&__hot {
+            position: absolute;
+            left: 0;
+            top: rem(20);
+            color: white;
+            background-color: #ff0000;
+            padding: 6px 22px;
+            z-index: 10;
+            pointer-events: none;
+            border-radius: rem(7) rem(47) rem(0);
+            
+        }
+}
+
+
+
+//===================================Slick-slider for products-page-----------------------------------------------------------------------------------------
+.slick-list {
+    overflow: hidden;
+}
+.slider-product-card .draggable{
+    transform: translate(10px, 10px);
+
+}
+/* Лента слайдов */
+.slider-product-card .slick-track{
+    display: flex;
+}
+/* Слайд */
+.slick-slide img{
+    @media(max-width: rem(750)){
+        zoom: 0.9;
+    }
+}
+
+/* Точки (булиты) */
+.slider-product-card .slick-dots{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: rem(50);
+}
+.slider-product-card .slick-dots li{
+    list-style: none;
+    margin-top: rem(20);
+}
+/* Активная точка */
+.slider-product-card .slick-dots li.slick-active button{
+    background-color: transparent;
+    border: 1px solid $mainOrange;
+}
+/* Элемент точки */
+.slick-dots li button{
+    font-size: 0;
+    width: 10px;
+    height: 10px;
+    background-color:$mainOrange;
+    border-radius: 50%;
+    margin: 0px 10px;
+}
+
+
+//====================Выпадающий список======================================================================
+.choices__inner{
+    font-size: rem(16);
+    border-radius: rem(10);
+    border-bottom:0px;
+    border: 1px solid gray;
+    min-width: rem(250);
+}
+
+
+.choices__list .choices__list--dropdown .is-active{
+    color: red;
+}
+
+.choices[data-type*=select-one] .choices__inner {
+    margin-top: rem(10);
+    padding-right: rem(80);
+}
+.choices[data-type*=select-one]::after {
+    border-width: rem(10);
+    &::before{
+        border: 1px solid orange;
+    }
+
+}
+
+//===================================================Product-info============================================================================================
+
+.tabs {
+   width: 100%;
+   max-width: 700px;
+   margin: rem(40) 0px;
+}
+
+/* Стили для списка вкладок */
+.tab-header {
+   list-style: none;
+   padding-left: 0;
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+   margin: 0;
+   @media(max-width: $tablet){
+       display: block;
+   }
+}
+
+/* Стили для вкладки */
+.tab-header__item {
+   padding: 10px 20px;
+   margin-right: 5px;
+   cursor: pointer;
+   border: 1px solid #ddd;
+   @media(max-width: $mobile){
+       &::before{
+           content: "\e900";
+            font-family: 'icomoon';
+            font-size: rem(14);
+            display: flex;
+   flex-direction: row-reverse;
+       }
+   }
+}
+
+/* Стили для активной вкладки */
+.tab-header__item.active {
+   color: $mainOrange;
+   border-bottom: 1px solid $mainOrange;
+   position: relative;
+   background-color: #fff;
+}
+
+/* Стиль для списка контейнеров с содержимым вкладок */
+.tab-content {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+}
+
+/* Стили для контейнера с содержимым вкладки. По умолчанию скрыт. */
+.tab-content__item {
+   display: none;
+   padding: 20px;
+   border: 1px solid #ddd;
+   margin-top: -1px;
+}
+
+/* Стили для активного контейнера вкладки */
+.tab-content__item.active {
+   display: block;
+}
+
+.tab-content {
+
+		// .tab-content__item
+
+		&__item {}
+}
+.js-tab-content {
+
+		// .js-tab-content__body
+
+		&__body {}
+}
+
+.tab-text {
+
+		// .tab-text_content
+
+		&_content {
+            margin: rem(20) rem(0);
+            @include adaptive-value(18, 16);
+        }
+}
+
+.body-content {
+    display: flex;
+    gap: rem(50);
+    @media(max-width:$mobile){
+        flex-direction: column;
+    }
+		// .body-content__about
+
+		&__about {}
+
+		// .body-content__characteristic
+
+		&__characteristic {}
+
+		// .body-content__reviews
+
+		&__reviews {}
+}
+.about-content {
+
+		// .about-content__title
+
+		&__title {
+            font-weight: 700;
+        }
+
+		// .about-content__items
+
+		&__items {}
+}
+.items-content {
+
+		// .items-content__text
+    padding: rem(10);
+    display: flex;
+    flex-direction: column;
+		&__text {
+            position: relative;
+            line-height: 2;
+            span{
+                position: absolute;
+                right: 0;
+            }
+        }
+}
+
+.text-span {
+    margin-left: 100%;
+}
+
+
+.characteristic-content {
+
+		// .characteristic-content__title
+
+		&__title {
+            font-weight: 700;
+             margin-bottom: rem(10);
+        }
+
+		// .characteristic-content__items-characteristic
+
+		&__items-characteristic {
+            padding: rem(10);
+        }
+}
+.items-characteristic {
+
+		// .items-characteristic__text
+
+		&__text {
+            position: relative;
+            line-height: 2;
+            span{
+                position: absolute;
+                right: 0;
+            }
+        }
+}
+.reviews-content {
+
+		// .reviews-content__title
+
+		&__title {}
+
+		// .reviews-content__items-reviews
+
+		&__items-reviews {}
+}
+.reviews-item {
+
+		// .reviews-item__text
+
+		&__text {}
+}
+.tab-content {
+
+		// .tab-content__item
+
+		&__item {}
+}
+.js-tab-content {
+
+		// .js-tab-content__text
+
+		&__text {
+            padding: rem(20);
+        }
+}
+.content-tab-button {
+}
+.button {
+
+		// .button_black
+
+		&_black {}
+}
+
+.button-mod{
+    margin-left: 50%;
+    &:hover{
+        background-color: $mainOrange;
+    }
+    @media(max-width: $mobile){
+        margin-left: 40%;
+    }
+    @media(max-width: $mobileSmall){
+        margin-left: 0%;
+
+    }
+}
+

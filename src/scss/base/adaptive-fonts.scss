@@ -1,0 +1,39 @@
+//минимальная ширина страницы
+$minWidth: 320;
+//Ширина полотна(макета)
+$maxWidth: 1920;
+
+//Ширина ограничивающего контейнера
+$maxWidthContainer: 1590;
+
+//Общий отступ у контейнера(во избежание прилипания контента к экрану)
+// ( 30 = по 15px слева и справа, 0 = нет отступа)
+$containerPadding: 30;
+
+//тип адаптива
+//1 - отзывчивость (у контейнера нет брейкпоинтов)
+//2 - по брейк-поинтам (контейнер имеет свою ширину по брейк-поинтам)
+$responsiveType: 1;
+
+//Ширина срабатывания первого брейкпойнта
+$containerWidth: $maxWidthContainer + $containerPadding;
+
+//Брейк-пойнты
+$pc: em($containerWidth);   //пк, ноутбук и тп
+$tablet: em(991.98);        //планшеты и некоторые телефоны в горизонтальном положении
+$mobile: em(767.98);        //Телефоны L
+$mobileSmall: em(479.98);   //Телефоны S
+
+
+
+
+@mixin adaptive-value($pc, $mobile) {
+    $addSize: $pc - $mobile;
+    $addMobSize: $addSize + $addSize * 0.7;
+    @media (max-width:$tablet){
+        font-size: calc(#{$mobile + px} + #{$addMobSize} * ((100vw - 320px) / #{$maxWidthContainer}));
+    }
+    @media (min-width:$tablet){
+        font-size: calc(#{$mobile + px} + #{$addSize} * (100vw /  #{$maxWidthContainer}));
+    }
+}
